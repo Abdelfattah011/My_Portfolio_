@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdelfattah Ahmed | Portfolio</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --primary-green: #10b981;
+            --primary-purple: #8b5cf6;
+            --glow-green: rgba(16, 185, 129, 0.2);
+            --glow-purple: rgba(139, 92, 246, 0.2);
+            --border-color: rgba(0, 0, 0, 0.05);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #050505;
+            --text-color: #f8fafc;
+            --card-bg: rgba(17, 17, 17, 0.7);
+            --primary-green: #00ff88;
+            --primary-purple: #b066ff;
+            --glow-green: rgba(0, 255, 136, 0.15);
+            --glow-purple: rgba(176, 102, 255, 0.15);
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, var(--glow-green), transparent 40%),
+                radial-gradient(circle at 85% 30%, var(--glow-purple), transparent 40%);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(5, 5, 5, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        [data-theme="light"] nav {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-green), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-green);
+            transform: scale(1.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            min-height: 100vh;
+            padding-top: 8rem;
+            padding-bottom: 4rem;
+            flex-wrap: wrap-reverse;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .highlight-green {
+            color: var(--primary-green);
+        }
+
+        .typing-container {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 2px solid var(--primary-purple);
+            white-space: nowrap;
+            letter-spacing: 2px;
+            font-family: 'Fira Code', monospace;
+            font-size: 1.2rem;
+            color: var(--primary-purple);
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+            margin-bottom: 2rem;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--primary-purple) } }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            border-radius: 30px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 35px;
+            background: linear-gradient(45deg, var(--primary-green), var(--primary-purple));
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.7;
+            animation: pulseGlow 4s ease-in-out infinite alternate;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            z-index: 2;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.5; filter: blur(20px); }
+            100% { opacity: 0.8; filter: blur(30px); }
+        }
+
+        .cta-btn {
+            background: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--primary-green);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--primary-green);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .cta-btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .cta-btn:hover {
+            color: #000;
+            box-shadow: 0 0 20px var(--glow-green);
+            border-color: transparent;
+        }
+
+        section {
+            padding: 6rem 0;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: var(--primary-purple);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-purple);
+            box-shadow: 0 15px 35px var(--glow-purple);
+        }
+
+        .card i.card-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, var(--primary-green), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card .company {
+            font-size: 1rem;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .card p {
+            font-size: 1.05rem;
+            opacity: 0.75;
+            line-height: 1.7;
+            flex-grow: 1; /* يضمن أن الروابط تظل في الأسفل دائماً */
+        }
+
+        /* تنسيق روابط المشاريع */
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(17, 17, 17, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+
+        [data-theme="light"] .project-link {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .project-link i {
+            font-size: 1.2rem;
+            color: var(--primary-green);
+        }
+
+        .project-link:hover {
+            border-color: var(--primary-green);
+            background: var(--glow-green);
+            transform: translateY(-3px) translateX(5px);
+            color: var(--primary-green);
+        }
+
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-tag {
+            padding: 1rem 2rem;
+            background: rgba(17, 17, 17, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        [data-theme="light"] .skill-tag {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .skill-tag:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px var(--glow-green);
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem 3rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary-green);
+            background: var(--glow-green);
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary-purple);
+        }
+        
+        .contact-item span {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            opacity: 0.5;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">A. Abdelfattah</div>
+        <button class="theme-toggle" id="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <div class="hero" id="home">
+            <div class="hero-text" data-aos="fade-up" data-aos-duration="1200">
+                <h1>Hello, I'm <br><span class="highlight-green">Abdelfattah</span> Ahmed</h1>
+                <div class="typing-container">
+                    Cybersecurity & Infra Engineer
+                </div>
+                <p>3rd-year Cybersecurity Engineering student at Alexandria University. I help fast-growing organizations safeguard critical assets and ensure uninterrupted business continuity through proactive threat hunting and robust network defense.</p>
+                <a href="#experience" class="cta-btn">
+                    Explore My Journey <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+            
+            <div class="hero-image" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                <div class="image-wrapper">
+                    <img src="./IMG_9790.jpeg" alt="Abdelfattah Ahmed" class="profile-pic" onerror="this.src='./IMG_9790.jpg'"> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-title" data-aos="fade-up">Professional <span>Experience</span></h2>
+            <div class="grid">
+                <!-- Data Engineering (DEPI) -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-database card-icon"></i>
+                    <h3>Data Engineering Intern</h3>
+                    <div class="company">Digital Egypt Pioneers Initiative (DEPI)</div>
+                    <p>Built and optimized end-to-end data pipelines, covering data extraction, cleaning, transformation (ETL), and database modeling. Applied modern data tools to ensure structured data delivery for analytics and reporting tasks.</p>
+                </div>
+
+                <!-- Network Intern -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-network-wired card-icon"></i>
+                    <h3>Networking Intern</h3>
+                    <div class="company">Alexandria Port Authority</div>
+                    <p>Gained hands-on experience in enterprise-grade infrastructure by assisting with network configuration, hardware troubleshooting, and monitoring. Supported the IT team in maintaining high-availability data links and port communications.</p>
+                </div>
+
+                <!-- AI Intern -->
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-brain card-icon"></i>
+                    <h3>AI & Analytics Intern</h3>
+                    <div class="company">Alexandria Port Authority</div>
+                    <p>Explored practical applications of machine learning and data analytics to optimize port operations. Worked on data preprocessing, model evaluation, and exploring automated computer vision or predictive workflows for logistics.</p>
+                </div>
+
+                <!-- IEEE Mentor -->
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-shield-alt card-icon"></i>
+                    <h3>Cybersecurity Mentor</h3>
+                    <div class="company">IEEE Student Branch</div>
+                    <p>Mentored aspiring engineers in core information security principles, threat analysis, and secure practices. Designed and delivered technical workshops, guiding participants through practical hands-on labs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title" data-aos="fade-up">Featured <span>Projects</span></h2>
+            <div class="grid">
+                <!-- Project 1: University Network -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-server card-icon"></i>
+                    <h3>University Network Architecture</h3>
+                    <div class="company">Cisco Packet Tracer</div>
+                    <p>Designed and implemented a scalable, multi-building enterprise network architecture. Segmented departmental traffic across administrative, academic, and student facilities using custom VLANs and subnets.</p>
+                    <a href="https://github.com/Abdelfattah011/University_Network_Project" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View Project
+                    </a>
+                </div>
+                
+                <!-- Project 2: Supermarket Data -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-broom card-icon"></i>
+                    <h3>Supermarket Data Pipeline</h3>
+                    <div class="company">Python & Jupyter</div>
+                    <p>Executed an end-to-end data preparation and analysis pipeline. Engineered comprehensive data cleaning routines handling missing values, standardizing mixed data types, and filtering domain outliers.</p>
+                    <a href="https://github.com/Abdelfattah011/SuperMarket_Data_cleaning" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View Project
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title" data-aos="fade-up">Core <span>Skills</span></h2>
+            <div class="skills-wrapper">
+                <div class="skill-tag" data-aos="fade-up" data-aos-delay="50">Network Traffic Analysis (Zeek, Snort)</div>
+                <div class="skill-tag" data-aos="fade-up" data-aos-delay="100">Cisco Routing & Switching</div>
+                <div class="skill-tag" data-aos="fade-up" data-aos-delay="150">SIEM & Threat Hunting</div>
+                <div class="skill-tag" data-aos="fade-up" data-aos-delay="200">Linux Administration</div>
+                <div class="skill-tag" data-aos="fade-up" data-aos-delay="250">Python & Data Cleaning</div>
+                <div class="skill-tag" data-aos="fade-up" data-aos-delay="300">Data Engineering (ETL)</div>
+                <div class="skill-tag" data-aos="fade-up" data-aos-delay="350">SQL & Database Modeling</div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title" data-aos="fade-up">Let's <span>Collaborate</span></h2>
+            <div class="contact-grid">
+                <a href="tel:+201110921121" class="contact-item" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+201110921121</span>
+                </a>
+                <a href="mailto:bwdy32951@gmail.com" class="contact-item" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-envelope"></i>
+                    <span>bwdy32951@gmail.com</span>
+                </a>
+                <a href="https://github.com/Abdelfattah011" target="_blank" class="contact-item" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/abdelfattah-ahmed-abdelfattah" target="_blank" class="contact-item" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2026 Abdelfattah Ahmed Abdelfattah. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 80,
+            duration: 1000,
+            easing: 'ease-out-cubic',
+        });
+
+        const themeBtn = document.getElementById('theme-btn');
+        const html = document.documentElement;
+        const icon = themeBtn.querySelector('i');
+
+        themeBtn.addEventListener('click', () => {
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                icon.className = 'fas fa-sun';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-moon';
+            }
+        });
+    </script>
+</body>
+</html>
