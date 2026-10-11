@@ -270,12 +270,6 @@
             gap: 2.5rem;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 2.5rem;
-        }
-
         .card {
             background: var(--card-bg);
             backdrop-filter: blur(12px);
@@ -321,14 +315,71 @@
             opacity: 0.8;
             line-height: 1.7;
             flex-grow: 1;
-            margin-bottom: 1rem;
         }
 
+        /* تنسيق STAR Method للمشاريع */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .star-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            flex-grow: 1;
+        }
+
+        .star-item {
+            background: var(--sub-bg);
+            padding: 1rem 1.2rem;
+            border-radius: 14px;
+            border-left: 3px solid var(--primary-purple);
+            transition: var(--transition);
+        }
+
+        .star-item:nth-child(even) {
+            border-left-color: var(--primary-green);
+        }
+
+        .star-item:hover {
+            transform: translateX(4px);
+            background: var(--glow-purple);
+        }
+
+        .star-item:nth-child(even):hover {
+            background: var(--glow-green);
+        }
+
+        .star-badge {
+            display: inline-block;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.35rem;
+            color: var(--primary-purple);
+        }
+
+        .star-item:nth-child(even) .star-badge {
+            color: var(--primary-green);
+        }
+
+        .star-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.88;
+        }
+
+        /* تنسيق روابط المشاريع */
         .project-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             padding: 0.8rem 1.5rem;
             background: var(--sub-bg);
             border: 1px solid var(--border-color);
@@ -352,6 +403,7 @@
             color: var(--primary-green);
         }
 
+        /* تنسيق قسم المهارات الجديد (Categories) */
         .skills-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -447,30 +499,4 @@
             padding: 2rem 3rem;
             background: var(--card-bg);
             border-radius: 20px;
-            border: 1px solid var(--border-color);
-            text-decoration: none;
-            color: var(--text-color);
-            transition: var(--transition);
-        }
-
-        .contact-item:hover {
-            border-color: var(--primary-green);
-            background: var(--glow-green);
-            transform: translateY(-5px);
-        }
-
-        .contact-item i {
-            font-size: 2rem;
-            color: var(--primary-purple);
-        }
-        
-        .contact-item span {
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            opacity: 0.5;
-            font-size:
+            border: 1px solid var(--border-color
