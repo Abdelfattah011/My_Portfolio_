@@ -317,7 +317,7 @@
             flex-grow: 1;
         }
 
-        /* تنسيق المشاريع */
+        /* Projects Section */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -360,7 +360,76 @@
             color: var(--primary-green);
         }
 
-        /* تنسيق قسم المهارات */
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-green);
+            box-shadow: 0 15px 35px var(--glow-green);
+        }
+
+        .service-card i.service-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, var(--primary-green), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.2rem;
+        }
+
+        .service-features li {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-features li i {
+            color: var(--primary-green);
+            font-size: 0.8rem;
+        }
+
+        /* Skills Section */
         .skills-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -487,7 +556,7 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
-            .projects-grid, .skills-categories, .grid {
+            .projects-grid, .skills-categories, .grid, .services-grid {
                 grid-template-columns: 1fr;
             }
             .contact-item {
@@ -533,8 +602,25 @@
         <section id="experience">
             <h2 class="section-title" data-aos="fade-up">Professional <span>Experience</span></h2>
             <div class="grid">
-                <!-- Data Engineering (DEPI) -->
+                
+                <!-- Data Engineering Intern - Data Pill -->
                 <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-cubes card-icon"></i>
+                    <h3>Data Engineering Intern</h3>
+                    <div class="company">Data Pill</div>
+                    <p>Focused on enterprise data warehouse architectures and big data workflows. Designed analytical schemas, handled large-scale datasets, and implemented optimized transformation pipelines for high-volume data storage and query retrieval.</p>
+                </div>
+
+                <!-- Cybersecurity Intern - DSC Egypt -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-user-secret card-icon"></i>
+                    <h3>Cybersecurity Intern</h3>
+                    <div class="company">Developer Student Clubs (DSC Egypt)</div>
+                    <p>Trained in proactive threat hunting, Security Operations Center (SOC) workflows, and web application security auditing based on OWASP Top 10 vulnerabilities. Investigated alert telemetry, analyzed attack vectors, and practiced incident handling.</p>
+                </div>
+
+                <!-- Data Engineering (DEPI) -->
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-database card-icon"></i>
                     <h3>Data Engineering Intern</h3>
                     <div class="company">Digital Egypt Pioneers Initiative (DEPI)</div>
@@ -542,7 +628,7 @@
                 </div>
 
                 <!-- Network Intern -->
-                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-network-wired card-icon"></i>
                     <h3>Networking Intern</h3>
                     <div class="company">Alexandria Port Authority</div>
@@ -550,7 +636,7 @@
                 </div>
 
                 <!-- AI Intern -->
-                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card" data-aos="fade-up" data-aos-delay="500">
                     <i class="fas fa-brain card-icon"></i>
                     <h3>AI & Analytics Intern</h3>
                     <div class="company">Alexandria Port Authority</div>
@@ -558,12 +644,13 @@
                 </div>
 
                 <!-- IEEE Mentor -->
-                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <div class="card" data-aos="fade-up" data-aos-delay="600">
                     <i class="fas fa-shield-alt card-icon"></i>
                     <h3>Cybersecurity Mentor</h3>
                     <div class="company">IEEE Student Branch</div>
                     <p>Mentored aspiring engineers in core information security principles, threat analysis, and secure network practices. Designed and delivered technical workshops, guiding participants through practical hands-on labs.</p>
                 </div>
+
             </div>
         </section>
 
@@ -635,6 +722,62 @@
                     <a href="https://github.com/Abdelfattah011/Data_Scraping_project" target="_blank" class="project-link">
                         <i class="fab fa-github"></i> View Project on GitHub
                     </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2 class="section-title" data-aos="fade-up">What I <span>Deliver</span></h2>
+            <div class="services-grid">
+                
+                <!-- Service 1: ETL & Data Warehousing -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-warehouse service-icon"></i>
+                    <h3>ETL & Data Warehouse Architecture</h3>
+                    <p>Designing robust enterprise data models (Star / Snowflake schemas) and building automated ETL pipelines in SSIS and SQL Server to convert scattered operational data into centralized, analytics-ready warehouses.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Dimensional Modeling & SCD Management</li>
+                        <li><i class="fas fa-check-circle"></i> SQL Query & Storage Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> High-throughput Call & Sales Record Processing</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: Automated Scraping & Pipelines -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-stream service-icon"></i>
+                    <h3>Data Pipelines & Automated Scraping</h3>
+                    <p>Developing resilient web scrapers with Selenium to harvest dynamic web data at scale, paired with Python (Pandas/NumPy) preprocessing pipelines that clean, validate, and structure noisy inputs automatically.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Anti-bot & Dynamic JavaScript Scraping</li>
+                        <li><i class="fas fa-check-circle"></i> Automated Imputation & Outlier Filtration</li>
+                        <li><i class="fas fa-check-circle"></i> BI & Data Ingestion Ready Schemas</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3: Enterprise Networking -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-network-wired service-icon"></i>
+                    <h3>Enterprise Network Architecture</h3>
+                    <p>Architecting secure, segmented campus topologies. Configuring Cisco routing and switching, VLAN segmentation, Inter-VLAN routing, and traffic control to maximize throughput and eliminate network broadcast loops.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> VLAN Segmentation & Inter-VLAN Routing</li>
+                        <li><i class="fas fa-check-circle"></i> Subnet Planning & Core DHCP/DNS Integration</li>
+                        <li><i class="fas fa-check-circle"></i> Cisco Infrastructure Deployment & Hardening</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4: Threat Defense & Security Operations -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-shield-alt service-icon"></i>
+                    <h3>Threat Defense & Security Operations</h3>
+                    <p>Protecting critical workloads via deep packet inspection and network boundary controls. Leveraging tools like Wireshark, Zeek, and Suricata for anomaly detection, coupled with strict ACL policies and incident response protocols.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> OWASP Top 10 Auditing & Remediation</li>
+                        <li><i class="fas fa-check-circle"></i> Deep Packet Analysis & Network Telemetry</li>
+                        <li><i class="fas fa-check-circle"></i> Blue Team Log Investigation & SOC Defense</li>
+                    </ul>
                 </div>
 
             </div>
