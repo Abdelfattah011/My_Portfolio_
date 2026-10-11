@@ -499,4 +499,116 @@
             padding: 2rem 3rem;
             background: var(--card-bg);
             border-radius: 20px;
-            border: 1px solid var(--border-color
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary-green);
+            background: var(--glow-green);
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary-purple);
+        }
+        
+        .contact-item span {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            opacity: 0.5;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .projects-grid, .skills-categories, .grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-item {
+                width: 100%;
+                padding: 1.5rem;
+                word-break: break-all;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Abdelfattah Ahmed</div>
+        <button class="theme-toggle" id="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <div class="hero" id="home">
+            <div class="hero-text" data-aos="fade-up" data-aos-duration="1200">
+                <h1>Hello, I'm <br><span class="highlight-green">Abdelfattah</span> Ahmed</h1>
+                <div class="typing-container">
+                    Cybersecurity & Data Engineer
+                </div>
+                <p>I help fast-growing organizations safeguard critical assets, build resilient data architectures, and ensure uninterrupted business continuity through proactive threat hunting and scalable data pipelines.</p>
+                <a href="#experience" class="cta-btn">
+                    Explore My Journey <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+            
+            <div class="hero-image" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                <div class="image-wrapper">
+                    <img src="./IMG_9790.jpeg" alt="Abdelfattah Ahmed" class="profile-pic" onerror="this.src='./IMG_9790.jpg'"> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-title" data-aos="fade-up">Professional <span>Experience</span></h2>
+            <div class="grid">
+                <!-- Data Engineering (DEPI) -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-database card-icon"></i>
+                    <h3>Data Engineering Intern</h3>
+                    <div class="company">Digital Egypt Pioneers Initiative (DEPI)</div>
+                    <p>Built and optimized end-to-end data pipelines, covering data extraction, cleaning, transformation (ETL), and data warehouse modeling. Applied modern data tools to ensure structured data delivery for analytics and reporting tasks.</p>
+                </div>
+
+                <!-- Network Intern -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-network-wired card-icon"></i>
+                    <h3>Networking Intern</h3>
+                    <div class="company">Alexandria Port Authority</div>
+                    <p>Gained hands-on experience in enterprise-grade infrastructure by assisting with Cisco switch configuration, fiber optic links, hardware troubleshooting, and monitoring. Supported the IT team in maintaining high-availability port communications.</p>
+                </div>
+
+                <!-- AI Intern -->
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-brain card-icon"></i>
+                    <h3>AI & Analytics Intern</h3>
+                    <div class="company">Alexandria Port Authority</div>
+                    <p>Explored practical applications of machine learning and data analytics to optimize port operations. Worked on data preprocessing, model evaluation, and exploring automated predictive workflows for logistics.</p>
+                </div>
+
+                <!-- IEEE Mentor -->
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-shield-alt card-icon"></i>
+                    <h3>Cybersecurity Mentor</h3>
+                    <div class="company">IEEE Student Branch</div>
+                    <p>Mentored aspiring engineers in core information security principles, threat analysis, and secure network practices. Designed and delivered technical workshops, guiding participants through practical hands-on labs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Modified to cohesive STAR paragraphs) -->
+        <section
